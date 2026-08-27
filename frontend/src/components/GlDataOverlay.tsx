@@ -201,13 +201,14 @@ export function GlDataOverlay({
       if (pc) useApp.getState().selectPostcode(pc.postcode);
     };
 
-    map.on("mousemove", onMove);
-    map.on("mouseleave", () => {
+    const onLeave = () => {
       hoverRef.current = null;
       setTip(null);
       map.getCanvas().style.cursor = "";
       draw();
-    });
+    };
+    map.on("mousemove", onMove);
+    map.on("mouseout", onLeave);
     map.on("click", onClick);
 
     return () => {
@@ -215,6 +216,7 @@ export function GlDataOverlay({
       map.off("zoom", redraw);
       map.off("resize", redraw);
       map.off("mousemove", onMove);
+      map.off("mouseout", onLeave);
       map.off("click", onClick);
       ro.disconnect();
     };

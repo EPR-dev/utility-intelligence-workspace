@@ -382,21 +382,23 @@ function ScenarioView({ rec }: { rec: PostcodeRecord }) {
         <p className="text-[12px] text-muted">
           These sliders do not run power flow. They nudge percentile-style indexes so a commercial conversation can ask “what would start to matter if…”.
         </p>
-        {[
-          ["Homes", homes, setHomes, 0, 3000],
-          ["Rooftop solar MW", solar, setSolar, 0, 20],
-          ["Battery MWh", batt, setBatt, 0, 30],
-          ["EV chargers", ev, setEv, 0, 800],
-          ["Commercial MW", comm, setComm, 0, 20],
-        ].map(([label, v, set, min, max]) => (
-          <label key={String(label)} className="mt-2 block text-[11px] text-muted">
-            {label}: {v as number}
+        {(
+          [
+            { label: "Homes", v: homes, set: setHomes, min: 0, max: 3000 },
+            { label: "Rooftop solar MW", v: solar, set: setSolar, min: 0, max: 20 },
+            { label: "Battery MWh", v: batt, set: setBatt, min: 0, max: 30 },
+            { label: "EV chargers", v: ev, set: setEv, min: 0, max: 800 },
+            { label: "Commercial MW", v: comm, set: setComm, min: 0, max: 20 },
+          ] as const
+        ).map(({ label, v, set, min, max }) => (
+          <label key={label} className="mt-2 block text-[11px] text-muted">
+            {label}: {v}
             <input
               type="range"
-              min={min as number}
-              max={max as number}
-              value={v as number}
-              onChange={(e) => (set as (n: number) => void)(Number(e.target.value))}
+              min={min}
+              max={max}
+              value={v}
+              onChange={(e) => set(Number(e.target.value))}
               className="w-full accent-[#4aa39a]"
             />
           </label>

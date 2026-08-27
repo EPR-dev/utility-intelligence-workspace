@@ -20,7 +20,7 @@ export function AppShell() {
   useEffect(() => {
     fetchBundle()
       .then(setBundle)
-      .catch((e) => setError(e.message || "Could not load bundle. Start the API and run the data pipeline."));
+      .catch((e) => setError(e.message || "Could not load the public-data bundle. Run pipelines/build_network_bundle.py then npm run dev in frontend."));
   }, [setBundle, setError]);
 
   return (

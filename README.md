@@ -72,19 +72,25 @@ Open http://localhost:3000 (or 3001 if 3000 is already taken).
 
 Share / hosted demo
 -------------------
-The live app is meant to be one URL (UI + API in the same container).
+The live app is a Next.js project (`frontend/`). Map layers and the intelligence
+API run in that app, so it deploys to Vercel like any other Next site.
+
 Public source: https://github.com/EPR-dev/utility-intelligence-workspace
 
-To keep it online without this PC: deploy the Dockerfile on Render with
-https://render.com/deploy?repo=https://github.com/EPR-dev/utility-intelligence-workspace
-Set `NEXT_PUBLIC_CARTO_API_KEY` in that service before the first build (same key as `frontend/.env.local`).
+Deploy: https://vercel.com/new/clone?repository-url=https://github.com/EPR-dev/utility-intelligence-workspace&project-name=utility-intelligence-workspace&root-directory=frontend
+
+Set Root Directory to `frontend`. Optional env var `NEXT_PUBLIC_CARTO_API_KEY`
+(same value as `frontend/.env.local`) avoids a CARTO watermark on raster tiles.
+Add it in Vercel **before** the first production build.
 
 Use Chrome or Edge. MapLibre 6 needs WebGL2; the intelligence panels still work without it.
 The street basemap is CARTO Dark Matter (vector). Raster CARTO tiles watermark without a key —
 vector currently does not. Optional: request a free key at https://carto.com/basemaps/apikey
 and set `NEXT_PUBLIC_CARTO_API_KEY` in `frontend/.env.local`.
 
-The UI proxies `/api/*` to FastAPI, so you only need the two processes above.
+Local UI: `cd frontend && npm run dev`. FastAPI on port 8000 is optional
+(`NEXT_PUBLIC_API_URL` if you still want it). Rebuild processed layers with
+`python pipelines/build_network_bundle.py`.
 
 On Windows you can also run `scripts/dev.ps1`.
 

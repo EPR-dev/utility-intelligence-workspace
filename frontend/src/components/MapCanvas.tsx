@@ -64,8 +64,6 @@ export function MapCanvas() {
         style: resolveBrowserBasemap(),
         center: (bundle?.config.map.defaultCenter as [number, number]) ?? [150.62, -34.48],
         zoom: bundle?.config.map.defaultZoom ?? 8.4,
-        attributionControl: true,
-        failIfMajorPerformanceCaveat: false,
       });
     } catch {
       setEngine("canvas");
@@ -88,7 +86,7 @@ export function MapCanvas() {
     requestAnimationFrame(resize);
 
     map.on("error", (e) => {
-      const msg = String((e as { error?: Error }).error?.message ?? "");
+      const msg = String((e as unknown as { error?: { message?: string } }).error?.message ?? "");
       if (/webgl|gpu/i.test(msg)) {
         setEngine("canvas");
         setStatus("Using the drawing fallback — WebGL is unavailable in this browser.");

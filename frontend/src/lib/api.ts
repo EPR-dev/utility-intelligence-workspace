@@ -3,13 +3,13 @@ import type { Bundle } from "./types";
 export const API = process.env.NEXT_PUBLIC_API_URL || "";
 
 export async function fetchBundle(networkId = "endeavour-energy"): Promise<Bundle> {
-  const r = await fetch(`${API}/api/networks/${networkId}/bundle`);
+  const r = await fetch(`${API}/data/${networkId}/bundle.json`);
   if (!r.ok) throw new Error(await r.text());
   return r.json();
 }
 
 export function layerUrl(name: string, networkId = "endeavour-energy") {
-  return `${API}/api/networks/${networkId}/layers/${name}`;
+  return `${API}/data/${networkId}/${name}.geojson`;
 }
 
 export async function postJson<T>(path: string, body: unknown): Promise<T> {
@@ -29,7 +29,7 @@ export async function postBrief(format: "markdown" | "html", networkId = "endeav
     body: JSON.stringify({ networkId, format }),
   });
   if (!r.ok) throw new Error(await r.text());
-  return format === "html" ? r.text() : r.text();
+  return r.text();
 }
 
 export async function uploadReadiness(file: File, datasetKind: string, useCase: string) {
