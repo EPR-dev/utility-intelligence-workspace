@@ -1,0 +1,83 @@
+{
+  "id": "endeavour-energy",
+  "name": "Endeavour Energy",
+  "shortName": "Endeavour",
+  "jurisdiction": "NSW, Australia",
+  "role": "Distribution Network Service Provider (DNSP)",
+  "customersApproximate": "About 1.1 million customer connections; electricity delivered to around 2.8 million people (operator-published figure).",
+  "serviceAreaSqKm": 24800,
+  "description": "Electricity distribution network covering Greater Western Sydney, the Blue Mountains, the Illawarra, the Southern Highlands, the South Coast and parts of Central West NSW.",
+  "notAffiliatedNotice": "This workspace is not affiliated with Endeavour Energy or GridSight. Outputs are strategic hypotheses from public data, not engineering conclusions.",
+  "map": {
+    "defaultCenter": [150.62, -34.48],
+    "defaultZoom": 8.4,
+    "maxBounds": [149.4, -35.8, 151.4, -32.1],
+    "focusView": {
+      "center": [150.72, -34.52],
+      "zoom": 9.2,
+      "label": "Southern Highlands / Illawarra"
+    }
+  },
+  "focusPlaces": [
+    { "id": "southern-highlands", "name": "Southern Highlands", "kind": "region", "center": [150.42, -34.48], "zoom": 10.2, "postcodes": ["2575", "2576", "2577", "2578", "2579"] },
+    { "id": "robertson", "name": "Robertson", "kind": "town", "center": [150.593, -34.590], "zoom": 12.2, "postcodes": ["2577"] },
+    { "id": "bowral", "name": "Bowral", "kind": "town", "center": [150.418, -34.479], "zoom": 12.2, "postcodes": ["2576"] },
+    { "id": "moss-vale", "name": "Moss Vale", "kind": "town", "center": [150.371, -34.548], "zoom": 12.2, "postcodes": ["2577"] },
+    { "id": "wollongong", "name": "Wollongong", "kind": "city", "center": [150.893, -34.427], "zoom": 11.2, "postcodes": ["2500", "2502", "2505", "2506"] },
+    { "id": "illawarra", "name": "Illawarra", "kind": "region", "center": [150.89, -34.48], "zoom": 9.6, "postcodes": ["2500", "2502", "2505", "2506", "2508", "2515", "2516", "2517", "2518", "2519", "2525", "2526", "2527", "2528", "2529"] }
+  ],
+  "regionHints": {
+    "Southern Highlands": ["2575", "2576", "2577", "2578", "2579", "2571"],
+    "Illawarra": ["2500", "2502", "2505", "2506", "2508", "2515", "2516", "2517", "2518", "2519", "2525", "2526", "2527", "2528", "2529"],
+    "South Coast": ["2533", "2534", "2535", "2536", "2538", "2539", "2540", "2541", "2545", "2546", "2548", "2549", "2550"],
+    "Blue Mountains": ["2773", "2774", "2776", "2777", "2778", "2779", "2780", "2782", "2783", "2784", "2785", "2786", "2787"],
+    "Western Sydney": ["2145", "2148", "2168", "2170", "2171", "2173", "2174", "2175", "2176", "2177", "2178", "2179", "2555", "2556", "2557", "2558", "2559", "2560", "2563", "2564", "2565", "2566", "2567", "2568", "2569", "2570", "2745", "2747", "2748", "2749", "2750", "2753", "2754", "2756", "2759", "2760", "2761", "2762", "2763", "2765", "2766", "2153", "2154", "2155", "2768", "2769"],
+    "Central West fringe": ["2787", "2790", "2792", "2794", "2795"]
+  },
+  "connectors": {
+    "opendatasoftBase": "https://data.endeavourenergy.com.au/api/explore/v2.1",
+    "datasets": {
+      "territory": "distribution-district",
+      "otherAssets": "networkassets_otherassets",
+      "capacity": "distribution-substation-available-capacity",
+      "poles": "endeavourenergy_poles",
+      "conductors": "conductors_hv_lv_sl_ug",
+      "unplannedOutages": "outagecustomerlive",
+      "plannedOutages": "plannedoutagecustomer"
+    }
+  },
+  "scoring": {
+    "flexibleExport": {
+      "solarIntensity": 0.30,
+      "solarGrowth": 0.25,
+      "batteryAdoption": 0.20,
+      "lvCongestionProxy": 0.15,
+      "growthPressure": 0.10
+    },
+    "networkVisibility": {
+      "derGrowth": 0.30,
+      "networkDensity": 0.20,
+      "publicFeederGap": 0.20,
+      "capacitySpread": 0.15,
+      "placePressure": 0.15
+    },
+    "connectionAssessment": {
+      "lowRemainingLoadCapacity": 0.35,
+      "industrialContext": 0.25,
+      "assetDensity": 0.15,
+      "demandGrowthProxy": 0.15,
+      "zoneProximity": 0.10
+    },
+    "derOrchestration": {
+      "solarIntensity": 0.30,
+      "batteryAdoption": 0.30,
+      "evContext": 0.20,
+      "electrificationProxy": 0.20
+    }
+  },
+  "notes": {
+    "availableCapacity": "Endeavour's public 'available capacity' field (avlbl_k) is treated as an indicative remaining load-capacity signal at distribution substations. It is not generation hosting capacity or export headroom.",
+    "feeders": "Public feeder polygons are not published as a complete layer. Conductor geometry exists but is too large for this workstation; absence of usable feeder topology is itself a visibility signal.",
+    "solarPenetration": "Without a public customer-count or dwelling-count join, solar is scored as installation intensity (count and kW per km2 / per network asset), not true customer penetration."
+  }
+}

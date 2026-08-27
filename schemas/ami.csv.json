@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Smart meter interval extract",
+  "required": ["nmi", "interval_end", "kwh"],
+  "properties": {
+    "nmi": { "type": "string" },
+    "interval_end": { "type": "string" },
+    "kwh": { "type": "number" },
+    "kvarh": { "type": "number" },
+    "quality_flag": { "type": "string" }
+  }
+}

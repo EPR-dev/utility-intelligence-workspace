@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Feeder extract",
+  "description": "Minimum useful feeder table for a first implementation conversation.",
+  "required": ["feeder_id", "zone_substation_id"],
+  "properties": {
+    "feeder_id": { "type": "string" },
+    "feeder_name": { "type": "string" },
+    "zone_substation_id": { "type": "string" },
+    "voltage_kv": { "type": "number" },
+    "customers": { "type": "integer" },
+    "length_km": { "type": "number" }
+  }
+}

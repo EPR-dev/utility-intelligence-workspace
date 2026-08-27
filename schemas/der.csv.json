@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DER register extract",
+  "required": ["der_id"],
+  "properties": {
+    "der_id": { "type": "string" },
+    "nmi": { "type": "string" },
+    "technology": { "type": "string" },
+    "capacity_kw": { "type": "number" },
+    "export_limit_kw": { "type": "number" },
+    "install_date": { "type": "string" },
+    "latitude": { "type": "number" },
+    "longitude": { "type": "number" },
+    "feeder_id": { "type": "string" }
+  }
+}

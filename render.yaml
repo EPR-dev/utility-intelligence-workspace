@@ -1,0 +1,12 @@
+# https://render.com — Web Service, Docker runtime, this repo as the source.
+services:
+  - type: web
+    name: utility-intelligence-workspace
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: "8080"
+      - key: NEXT_PUBLIC_CARTO_API_KEY
+        sync: false

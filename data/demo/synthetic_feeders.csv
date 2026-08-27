@@ -1,0 +1,10 @@
+feeder_id,feeder_name,zone_substation_id,voltage_kv,customers,length_km
+SH-11-01,Robertson Town,ZS-BOWRAL,11,1840,18.4
+SH-11-02,Moss Vale West,ZS-MOSSVALE,11,2210,22.1
+SH-11-03,Bowral North,ZS-BOWRAL,11,2650,14.8
+SH-11-04,Exeter Rural,,11,640,31.2
+SH-11-05,Kangaloon,ZS-MISSING,11,410,12.7
+SH-11-06,Robertson Town,ZS-BOWRAL,11,1840,18.4
+IL-11-01,Wollongong CBD,ZS-WOLLONGONG,11,4100,9.4
+IL-11-02,Port Kembla Industrial,ZS-PORTKEMBLA,11,860,7.1
+IL-33-01,Unanderra,ZS-UNANDERRA,33,1520,-4.0

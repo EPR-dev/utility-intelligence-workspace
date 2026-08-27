@@ -1,0 +1,8 @@
+substation_id,name,type,voltage_kv,latitude,longitude,parent_id
+ZS-BOWRAL,Bowral Zone,zone,66,-34.479,150.418,
+ZS-MOSSVALE,Moss Vale Zone,zone,66,-34.548,150.371,
+ZS-WOLLONGONG,Wollongong Zone,zone,132,-34.427,150.893,
+ZS-PORTKEMBLA,Port Kembla Zone,zone,132,-34.478,150.899,
+DS-1001,Robertson kiosk 1,distribution,11,-34.590,150.593,SH-11-01
+DS-1002,Bowral kiosk 4,distribution,11,-34.481,150.421,SH-11-03
+DS-1003,Outside territory example,distribution,11,-33.868,151.209,SH-11-01

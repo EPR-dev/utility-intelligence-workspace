@@ -1,0 +1,17 @@
+# Utility Intelligence Workspace
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.DS_Store
+Thumbs.db
+node_modules/
+frontend/.next/
+frontend/out/
+data/raw/**
+!data/raw/.gitkeep
+backend/**/__pycache__/
+*.geojson.bak
+.pytest_cache/
+.mypy_cache/

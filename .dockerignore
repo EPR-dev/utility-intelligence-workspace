@@ -1,0 +1,23 @@
+# git
+.git
+.gitignore
+
+# deps and build
+**/node_modules
+frontend/.next
+frontend/out
+**/.venv
+**/__pycache__
+**/*.pyc
+
+# secrets and local env
+**/.env
+**/.env.local
+frontend/.env.local
+
+# huge raw downloads (processed data is copied)
+data/raw
+**/.DS_Store
+**/*.geojson.bak
+.pytest_cache
+.mypy_cache

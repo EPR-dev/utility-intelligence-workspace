@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Substation extract",
+  "required": ["substation_id"],
+  "properties": {
+    "substation_id": { "type": "string" },
+    "name": { "type": "string" },
+    "type": { "type": "string", "description": "zone | distribution | transmission" },
+    "voltage_kv": { "type": "number" },
+    "latitude": { "type": "number" },
+    "longitude": { "type": "number" },
+    "parent_id": { "type": "string" }
+  }
+}

@@ -1,0 +1,7 @@
+der_id,nmi,technology,capacity_kw,export_limit_kw,install_date,latitude,longitude,feeder_id
+DER-001,NCCC0001,solar,6.6,5.0,2024-11-02,-34.591,150.592,SH-11-01
+DER-002,NCCC0002,solar,10.0,1.5,2023-03-18,-34.480,150.419,SH-11-03
+DER-003,NCCC0003,battery,5.0,,2025-08-12,-34.547,150.372,SH-11-02
+DER-004,NCCC0004,solar,-8.0,5.0,not-a-date,-34.590,150.594,
+DER-004,NCCC0004,solar,8.0,5.0,2022-01-09,-34.590,150.594,SH-11-01
+DER-005,NCCC0005,solar,6.6,5.0,2021-06-01,95.0,250.0,SH-11-01
