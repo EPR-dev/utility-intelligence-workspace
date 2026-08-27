@@ -70,6 +70,15 @@ Python 3.12+ and Node 20+ assumed.
 
 Open http://localhost:3000 (or 3001 if 3000 is already taken).
 
+Share / hosted demo
+-------------------
+The live app is meant to be one URL (UI + API in the same container).
+Public source: https://github.com/EPR-dev/utility-intelligence-workspace
+
+To keep it online without this PC: deploy the Dockerfile on Render with
+https://render.com/deploy?repo=https://github.com/EPR-dev/utility-intelligence-workspace
+Set `NEXT_PUBLIC_CARTO_API_KEY` in that service before the first build (same key as `frontend/.env.local`).
+
 Use Chrome or Edge. MapLibre 6 needs WebGL2; the intelligence panels still work without it.
 The street basemap is CARTO Dark Matter (vector). Raster CARTO tiles watermark without a key —
 vector currently does not. Optional: request a free key at https://carto.com/basemaps/apikey
